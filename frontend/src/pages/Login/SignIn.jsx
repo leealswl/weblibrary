@@ -4,7 +4,7 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link as RouterLink, useNavigate,useLocation } from "react-router-dom";
-import logo from "../../assets/booky.png";
+import logo from "../../assets/logo.png";
 import useSignIn from "../../hooks/useSignIn";
 
 export default function SignIn() {
@@ -54,6 +54,9 @@ export default function SignIn() {
         <Box sx={{ textAlign: "center", mb: 3 }}>
           <Link component={RouterLink} to="/" underline="none">
             <img src={logo} alt="logo" style={{ maxWidth: "200px", height: "auto", cursor: "pointer" }} />
+            {/* <div className="signin-logo">
+            booKids
+            </div> */}
           </Link>
         </Box>
 
@@ -97,7 +100,7 @@ export default function SignIn() {
               disabled={!canSubmit}
               sx={{
                 mt: 0.5, py: 1.2, borderRadius: 1,
-                bgcolor: "#FFD700", "&:hover": { bgcolor: "#FFC300" },
+                bgcolor: "#589857", "&:hover": { bgcolor: "#5d995bff" },
                 textTransform: "none", fontWeight: 600, color: "#4B3F2F",
               }}
               fullWidth

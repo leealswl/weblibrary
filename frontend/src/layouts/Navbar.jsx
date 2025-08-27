@@ -33,7 +33,7 @@ const activeSx = {
 };
 const navItems = [
     { to: "/board", label: "게시판" },
-    { to: "/", label: "추천 책장" },
+    { to: "/recommand", label: "추천 책장" },
     { to: "/recommand/edit", label: "책장 소식" },
 ];
 
@@ -153,17 +153,20 @@ export default function NavBar() {
         <Stack sx={{ p: 1 }}>
             {user ? (
                 <>
-                <Typography sx={{ px: 2, py: 1.25, color: green, fontSize: 16 }}>
+                {/* <Typography sx={{ px: 2, py: 1.25, color: green, fontSize: 16 }}>
                     {user.username} 님
-                </Typography>
-                {/* <MLink
+                </Typography> */}
+                <MLink
                     component={NavLink}
                     to="/mypage"
                     onClick={() => setOpen(false)}
-                    sx={{ ...linkSx, display: "block", px: 2, py: 1.25, fontSize: 16 }}
+                    sx={{display: "block", px: 2, py: 1.25, fontSize: 16,
+                        color: green, textDecoration: "none",
+                        "&:hover": { textDecoration: "underline", textUnderlineOffset: "4px", textDecorationThickness: "3px" },
+                    }}
                 >
-                    마이페이지
-                </MLink> */}
+                    {user.username} 님
+                </MLink>
                 {/* 모바일에선 버튼 하나로 처리 */}
                 <Box sx={{ px: 2, py: 1 }}>
                     <LogoutButton variant="outlined" after="/" />

@@ -13,7 +13,10 @@ export default function PageBanner({ title, subtitle, bgImage }) {
             color: "#fff",
         }}
         >
-        <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
+        <Container maxWidth="lg" 
+                    sx={{ py: { xs: 6, md: 10 },
+                    textAlign: "right",
+                        }}>
             {subtitle && (
             <Typography variant="body1" sx={{ mb: 1 }}>
                 {subtitle}

@@ -39,7 +39,7 @@ export default function Section2() {
           }}
           data-aos="fade-up"
         >
-          {`logo에서 즐겁게 읽고 나누는 독후활동.\n취향이 맞는 사람과 대화로 넓어지는 두 번째 독서.`}
+          {`BooKids에서 즐겁게 읽고 나누는 독후활동.\n취향이 맞는 사람과 대화로 넓어지는 두 번째 독서.`}
         </Typography>
 
         <Button
@@ -61,7 +61,7 @@ export default function Section2() {
           data-aos="fade-up"
           onClick={() => navigate("/board")}
         >
-          모임 찾아보기
+          커뮤니티 가기
         </Button>
       </Container>
     </Box>

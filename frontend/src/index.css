@@ -12,6 +12,20 @@
     font-style: normal;
 }
 html, body, #root {
+    background-color: #faf6ef !important;
+    min-height: 100%;
     margin: 0;
     padding: 0;
+}
+
+
+.app-layout {
+    min-height: 100vh;        /* 화면 높이 꽉 채우기 */
+    display: flex;
+    flex-direction: column;   /* 위: 헤더, 중간: 메인, 아래: 푸터 */
+}
+
+.app-main {
+    flex: 1;
+    background-color: #faf6ef;  /* 메인 영역이 남는 공간을 차지해서 푸터를 아래로 밀어줌 */
 }

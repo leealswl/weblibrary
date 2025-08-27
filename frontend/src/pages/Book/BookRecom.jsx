@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Stack } from '@mui/material';
+import { Container, Divider, Stack } from '@mui/material';
 import BookShelf from "../../components/BookShelf/BookShelf.jsx";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -8,8 +8,13 @@ import BookReader from "../../components/BookShelf/BookReader";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 
+import PageBanner from "../../components/PageBanner";
+import boardBanner from "../../assets/recommend.png";
+
+
 
 export default function BookRecom() {
+  const navigate = useNavigate
   const sampleBook = [
     { image: "/images/books/page0.png" },
     { image: "/images/books/page1.png" },
@@ -60,42 +65,99 @@ export default function BookRecom() {
 
   const defaultPage = [
     { image: "/images/books/page00.png" }
+    
   ];
 
   // ✅ 상태: 현재 보여줄 페이지
   const [pages, setPages] = useState(defaultPage);
-  const navigate = useNavigate();
+
+  const [selectedBook, setSelectedBook] = useState(null);
+
+
   // ✅ BookShelf에서 특정 책 선택 시 실행할 함수
   const handleSelectBook = (bookId) => {
-    if (bookId === 4) {
+    setSelectedBook(bookId); // 어떤 책 눌렀는지 기억
+    if (bookId === 4) {      // 🐰토끼 간은 어디로 갔을까
       setPages(sampleBook);
+    } else {
+      setPages(defaultPage); // 다른 책이면 초기화하거나 원하는 내용
     }
-  };
- const handleEditEnding = () => {
+    };
+const handleEditEnding = () => {
     navigate("./edit");
  };
-
   return (
+    <>
+    {/* 배너는 전체폭 */}
+    <PageBanner
+      title="추천 책장"
+      subtitle="함께 펼쳐가는 이 주의 책장"
+      bgImage={boardBanner}
+    />
+    <Box sx={{ py: 4, textAlign: "center", bgcolor: "#faf6ef"}}>
+    <Typography 
+      variant="h5" 
+      sx={{ 
+        fontWeight: 700, 
+        mb: 1, 
+        fontFamily: "'KyoboHand','sans-serif'"
+      }}
+    >
+      📚 BooKids 추천책장은
+    </Typography>
+    <Typography 
+      variant="body1" 
+      sx={{ 
+        mb: 1, 
+        fontSize: "1.1rem", 
+        color: "text.secondary", 
+        fontFamily: "'KyoboHand','sans-serif'" 
+      }}
+    >
+      독서와 상상을 나누는 작은 서재입니다.
+    </Typography>
+    <Typography 
+      variant="body1" 
+      sx={{ 
+        mb: 2, 
+        fontSize: "1.1rem", 
+        color: "text.secondary", 
+        fontFamily: "'KyoboHand','sans-serif'" 
+      }}
+    >
+      읽고 싶은 책을 선택해주세요.
+    </Typography>
+
+    </Box>
+
     <Container maxWidth="80%" className="bodyy">
       <Box>
-        <Typography
-          variant="h5"
-          sx={{
-            paddingTop : 5,
-            color: "#69681aff",
-            fontWeight: "bold",
-            fontFamily: "'KyoboHand', cursive",
-            mb: 3,
-            textAlign: "center",
-          }}
-        >
-          🐰 토끼 간이 숨겨져 있는 곳의 지도 🐰
-        </Typography>
-
         {/* BookShelf에 선택 이벤트 전달 */}
         <BookShelf onSelectBook={handleSelectBook} />
       </Box>
-
+        <Box
+          sx={{
+            minHeight: 72,                
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mb: 1,
+          }}
+        >
+          <Typography
+            variant="h5"
+            sx={{
+              px: 2,
+              color: "#69681aff",
+              fontWeight: "bold",
+              fontFamily: "'KyoboHand', cursive",
+              textAlign: "center",
+              visibility: selectedBook === 4 ? "visible" : "hidden",
+            }}
+          >
+            🐰 토끼 간이 숨겨져 있는 곳의 지도 🐰
+          </Typography>
+        </Box>
       {/* BookReader → 현재 상태에 따라 defaultPage or sampleBook 보여줌 */}
       <Stack sx={{ mt: 8, mb :8, display: "flex", justifyContent: "center" }}>
         <BookReader pages={pages} />
@@ -103,7 +165,6 @@ export default function BookRecom() {
 
       
       {/*  결말바꾸기 버튼 */}
-         
         <Box sx={{mb: 10, textAlign: "center" }}>
           <Button
             variant="contained"
@@ -114,7 +175,7 @@ export default function BookRecom() {
             결말 바꾸기
           </Button>
         </Box>
-      <Stack></Stack>
     </Container>
-   );
+    </>
+  );
 }

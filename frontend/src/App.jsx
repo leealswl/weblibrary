@@ -73,10 +73,10 @@ function App() {
             <Route path="view" element={<BookView />} />
           </Route>
           
-        {/* </Route> */}
-          {/* 마이페이지 관련 라우트 */}
-          {/* <Route path="mypage" element={<Mypage />} /> */}
         </Route>
+          {/* 마이페이지 관련 라우트 */}
+          <Route path="mypage" element={<Mypage />} />
+        {/* </Route> */}
          {/* 로그인 관련 라우트 */}
           <Route path="login">
             <Route index element={<SignIn />} />

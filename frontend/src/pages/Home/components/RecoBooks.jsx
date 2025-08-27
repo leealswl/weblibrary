@@ -8,14 +8,14 @@ const GREEN = "#589857";
 
 const dummyBooks = [
   { itemId: 1, title: "토끼와 거북이", author: "제리 핑크니 (지은이),김예환 (옮긴이)", cover: "https://image.aladin.co.kr/product/5564/61/cover500/8932917051_1.jpg", description: "문학동네어린이문학상 심사위원 만장일치" },
-  { itemId: 2, title: "어린 왕자", author: "생텍쥐페리",  cover: "https://image.aladin.co.kr/product/36931/31/cover200/k832030216_1.jpg", description: "별과 사막, 순수함에 대한 이야기" },
-  { itemId: 3, title: "해리포터와 마법사의 돌", author: "J.K. 롤링", cover: "https://image.aladin.co.kr/product/36885/25/cover200/k272030606_1.jpg", description: "마법 세계로 떠나는 첫 모험" },
-  { itemId: 4, title: "클린 코드", author: "로버트 C. 마틴", cover: "https://image.aladin.co.kr/product/36639/67/cover200/k092030989_2.jpg", description: "깨끗한 코드를 위한 지침서" },
-  { itemId: 5, title: "노인과 바다", author: "어니스트 헤밍웨이", cover: "https://image.aladin.co.kr/product/36859/73/cover200/8936443445_2.jpg", description: "노인의 끈기와 존엄" },
-  { itemId: 6, title: "죄와 벌", author: "도스토예프스키", cover: "https://image.aladin.co.kr/product/36812/93/cover200/8932044201_1.jpg", description: "죄의식과 구원의 서사" },
-  { itemId: 7, title: "죄와 벌", author: "도스토예프스키", cover: "https://image.aladin.co.kr/product/36297/91/cover200/8936429450_1.jpg", description: "죄의식과 구원의 서사" },
-  { itemId: 8, title: "죄와 벌", author: "도스토예프스키", cover: "https://image.aladin.co.kr/product/36724/77/cover200/8964965353_1.jpg", description: "죄의식과 구원의 서사" },
-  { itemId: 9, title: "죄와 벌", author: "도스토예프스키", cover: "https://image.aladin.co.kr/product/85/93/cover200/8990794528_2.jpg", description: "죄의식과 구원의 서사" },
+  { itemId: 2, title: "내 고양이 포", author: "생텍쥐페리",  cover: "https://image.aladin.co.kr/product/36931/31/cover200/k832030216_1.jpg", description: "별과 사막, 순수함에 대한 이야기" },
+  { itemId: 3, title: "타이거", author: "J.K. 롤링", cover: "https://image.aladin.co.kr/product/36885/25/cover200/k272030606_1.jpg", description: "마법 세계로 떠나는 첫 모험" },
+  { itemId: 4, title: "느림보 거북이의 단단한 결심", author: "로버트 C. 마틴", cover: "https://image.aladin.co.kr/product/36639/67/cover200/k092030989_2.jpg", description: "깨끗한 코드를 위한 지침서" },
+  { itemId: 5, title: "푸른사자 와니니", author: "어니스트 헤밍웨이", cover: "https://image.aladin.co.kr/product/36859/73/cover200/8936443445_2.jpg", description: "노인의 끈기와 존엄" },
+  { itemId: 6, title: "비로와 호랑할배", author: "도스토예프스키", cover: "https://image.aladin.co.kr/product/36812/93/cover200/8932044201_1.jpg", description: "죄의식과 구원의 서사" },
+  { itemId: 7, title: "건전지 할머니", author: "도스토예프스키", cover: "https://image.aladin.co.kr/product/36297/91/cover200/8936429450_1.jpg", description: "죄의식과 구원의 서사" },
+  { itemId: 8, title: "반반이", author: "도스토예프스키", cover: "https://image.aladin.co.kr/product/36724/77/cover200/8964965353_1.jpg", description: "죄의식과 구원의 서사" },
+  { itemId: 9, title: "사랑해사랑해사랑해", author: "도스토예프스키", cover: "https://image.aladin.co.kr/product/85/93/cover200/8990794528_2.jpg", description: "죄의식과 구원의 서사" },
 ];
 
 const toLargeCover = (url) =>
@@ -125,8 +125,8 @@ export default function RecoBooks() {
         </Grid>
       </Container>
       <Box data-aos="fade-up" data-aos-offset="120">
-        <BookSlider books={data} responsive={responsive} enableAutoPlay autoPlaySpeed={2000} fullBleed />
-      </Box>        
+        <BookSlider books={data} responsive={responsive} enableAutoPlay autoPlaySpeed={2000} />
+      </Box>
     </Box>
   );
 }

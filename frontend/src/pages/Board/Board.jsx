@@ -17,6 +17,11 @@ import api from '../../utils/api';
 import { Link } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
 
+import PageBanner from "../../components/PageBanner";
+import boardBanner from "../../assets/board.png";
+import { Typography } from '@mui/material';
+
+
 function CustomPagination() {
   const apiRef = useGridApiContext();
   const page = useGridSelector(apiRef, gridPageSelector);
@@ -27,6 +32,7 @@ function CustomPagination() {
   };
 
   return (
+    
     <Pagination
       count={pageCount}
       page={page + 1}
@@ -117,99 +123,146 @@ export default function Board() {
 
   return (
   <React.Fragment>
-    <CssBaseline />
-    <Container
-      maxWidth={false}
-      sx={{ maxWidth: 1600, mx: 'auto', px: 2, mt: 4 }} // ★ CHANGED: 컨테이너 최대폭 커스텀
-    >
-      
-        <h1 className="reviewHead">도서리뷰</h1>
-
-        <DataGrid
-          rows={rows}
-          columns={columns}
-          disableRowSelectionOnClick    // ← 링크 클릭 시 체크박스/선택 변화 방지
-          pagination
-          paginationModel={paginationModel}
-          onPaginationModelChange={setPaginationModel}
-          pageSizeOptions={[5, 10, 20]}
-          checkboxSelection
-          unstable_autoHeight
-          headerHeight={56}
-          rowHeight={52}
-          slots={{ pagination: CustomPagination }} // ★ CHANGED: 커스텀 페이지네이션 연결(위에서 선언 필요)
-          sx={{
-            border: 0,
-            "& .header-blue": {
-              backgroundColor: "#faf6ef",
-              color: "#333",
-              fontWeight: "bold",
-              fontFamily: "'KyoboHand', sans-serif",
-              fontSize: 25
-            },
-            "& .MuiDataGrid-footerContainer": {
-              justifyContent: "center" // ★ CHANGED: 중앙 정렬(보조용, CustomPagination 래퍼와 함께 사용)
-            }
-          }}
-        />
-      
-
-      {/* 하단 검색/글쓰기 바 - 컨테이너 하단 sticky */}
-      <Box
-        sx={{
-          //position: "sticky",       
-          bottom: 0,                // ★ CHANGED
-          bgcolor: "background.paper",
-          py: 1.5,
-          mt: 2,
-          borderTop: "1px solid",
-          borderColor: "divider",
-          display: "flex",
-          gap: 2,
-          alignItems: "center"
-        }}
-      >
-        <FormControl size="small" sx={{ minWidth: 120 }}>
-          <InputLabel id="field-label">검색</InputLabel>
-          <Select
-            labelId="field-label"
-            label="검색"
-            value={field}
-            onChange={(e) => setField(e.target.value)}
+    {/* <CssBaseline /> */}
+    
+      <PageBanner
+        title="커뮤니티"
+        subtitle="함께 나누는 책 이야기"
+        bgImage={boardBanner}
+      />
+        <Box sx={{ py: 4, textAlign: "center", bgcolor: "#faf6ef", borderRadius: 2, mb: 4 }}>
+          <Typography 
+            variant="h5" 
+            sx={{ 
+              fontWeight: 700, 
+              mb: 1, 
+              fontFamily: "'KyoboHand','sans-serif'"
+            }}
           >
-            <MenuItem value="title">제목</MenuItem>
-            <MenuItem value="bookName">도서정보</MenuItem>
-            <MenuItem value="userName">작성자</MenuItem>
-          </Select>
-        </FormControl>
+            📚 BooKids 커뮤니티는
+          </Typography>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              mb: 1, 
+              fontSize: "1.1rem", 
+              color: "text.secondary", 
+              fontFamily: "'KyoboHand','sans-serif'" 
+            }}
+          >
+            독서와 사유를 나누는 작은 서재입니다.
+          </Typography>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              mb: 2, 
+              fontSize: "1.1rem", 
+              color: "text.secondary", 
+              fontFamily: "'KyoboHand','sans-serif'" 
+            }}
+          >
+            당신의 글이 이 공간을 채워갑니다.
+          </Typography>
 
-        <TextField
-          size="small"
-          placeholder="검색어"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          sx={{ width: 280 }}
-        />
+          <Button
+            variant="contained"
+            color="success"
+            component={Link}
+            to="/board/write"
+            sx={{ px: 4, py: 1.2, fontWeight: 600, fontFamily: "'KyoboHand','sans-serif'" }}
+          >
+            ✍️ 글쓰기
+          </Button>
+        
 
-        <Button variant="contained" onClick={handleSearch}
-        style={{ 
-            backgroundColor: "#50e054ff"}}>
-          찾기
-        </Button>
-
-        <Box sx={{ flexGrow: 1 }} />
-
-        <Button
-          variant="contained"
-          component={Link}
-          style={{ 
-            backgroundColor: "#4caf50"}}
-          to="/board/write"
+      <Container
+        maxWidth={false}
+        sx={{ maxWidth: 1200, mx: 'auto', px: 2, mt: 4 }} // ★ CHANGED: 컨테이너 최대폭 커스텀
+      >
+        {/* 하단 검색/글쓰기 바 - 컨테이너 하단 sticky */}
+        <Box
+          sx={{
+            //position: "sticky",       
+            bottom: 0,                // ★ CHANGED
+            bgcolor: "#faf6ef",
+            py: 1.5,
+            mt: 2,
+            borderTop: "1px solid",
+            borderColor: "divider",
+            display: "flex",
+            gap: 2,
+            alignItems: "center"
+          }}
         >
-          글쓰기
-        </Button>
-      </Box>
-    </Container>
+          <FormControl size="small" sx={{ minWidth: 120 }}>
+            <InputLabel id="field-label">검색</InputLabel>
+            <Select
+              labelId="field-label"
+              label="검색"
+              value={field}
+              onChange={(e) => setField(e.target.value)}
+            >
+              <MenuItem value="title">제목</MenuItem>
+              <MenuItem value="bookName">도서정보</MenuItem>
+              <MenuItem value="userName">작성자</MenuItem>
+            </Select>
+          </FormControl>
+
+          <TextField
+            size="small"
+            placeholder="검색어"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            sx={{ width: 280 }}
+          />
+
+          <Button variant="contained" onClick={handleSearch}
+          style={{ 
+              backgroundColor: "#569955ff"}}>
+            찾기
+          </Button>
+
+          <Box sx={{ flexGrow: 1 }} />
+        </Box>
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            disableRowSelectionOnClick    // ← 링크 클릭 시 체크박스/선택 변화 방지
+            pagination
+            paginationModel={paginationModel}
+            onPaginationModelChange={setPaginationModel}
+            pageSizeOptions={[5, 10, 20]}
+            checkboxSelection
+            unstable_autoHeight
+            headerHeight={56}
+            rowHeight={52}
+            slots={{ pagination: CustomPagination }} // ★ CHANGED: 커스텀 페이지네이션 연결(위에서 선언 필요)
+            sx={{
+              border: 0,
+              backgroundColor: "#faf6ef",
+              "& .MuiDataGrid-main": { bgcolor: "#faf6ef" },
+              "& .MuiDataGrid-virtualScroller": { bgcolor: "#faf6ef" },
+              "& .MuiDataGrid-virtualScrollerContent": { bgcolor: "#faf6ef" },
+              "& .MuiDataGrid-row": { bgcolor: "#faf6ef" },
+              "& .MuiDataGrid-cell": { bgcolor: "#faf6ef" },
+              "& .MuiDataGrid-footerContainer": {
+                bgcolor: "#faf6ef",
+                justifyContent: "center",
+              },
+              "& .header-blue": {
+                backgroundColor: "#d8b77dff",
+                color: "#333",
+                fontWeight: "bold",
+                fontFamily: "'KyoboHand', sans-serif",
+                fontSize: 20
+              },
+              "& .MuiDataGrid-footerContainer": {
+                justifyContent: "center" // ★ CHANGED: 중앙 정렬(보조용, CustomPagination 래퍼와 함께 사용)
+              }
+            }}
+          />
+      </Container>
+  </Box>          
   </React.Fragment>
 );
 }

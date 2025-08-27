@@ -87,7 +87,7 @@ const Banner = () => {
               fontFamily: "'STUNNING-Bd','KyoboHand',sans-serif", 
             }}
           >
-            logogo를 통해 독서 모임과 리뷰를 나눠보세요.
+            BooKids를 통해 독서 모임과 리뷰를 나눠보세요.
             {"\n"}취향이 맞는 사람들과 함께 성장하는 경험.
           </Typography>
 

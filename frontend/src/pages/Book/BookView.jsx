@@ -81,14 +81,14 @@ export default function BookView() {
       pages.push({ image: uploadedImages[14] });
     }
     if (uploadedImages[14]) {
-      pages.push({ text: 'Ai돌릴내용 1페이지' });
+      pages.push({ text: '거북이는 인내심을 갖고 매복하여 결국 토끼를 잡았습니다' });
     }
 
     if (uploadedImages[15]) {
       pages.push({ image: uploadedImages[15] });
     }
     if (uploadedImages[15]) {
-      pages.push({ text: 'Ai돌릴내용 2페이지' });
+      pages.push({ text: '그리고는 산채로 간을 꺼내서 용궁으로 돌아갔고 용왕님의 병은 낫고 모두 행복해졌답니다.' });
     }
         return pages;
       };
@@ -111,6 +111,8 @@ export default function BookView() {
       </div>
       
       <BookReader pages={generatePagesData()} />
+      <Stack></Stack>
+      <Stack></Stack>
     </div>
   );
 }
