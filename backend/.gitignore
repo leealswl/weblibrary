@@ -5,6 +5,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+# 로컬 전용파일 커밋하지않기
+src/main/resources/application-local.properties
+
 ### STS ###
 .apt_generated
 .classpath
