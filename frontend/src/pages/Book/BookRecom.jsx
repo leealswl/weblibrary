@@ -14,7 +14,7 @@ import boardBanner from "../../assets/recommend.png";
 
 
 export default function BookRecom() {
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const sampleBook = [
     { image: "/images/books/page0.png" },
     { image: "/images/books/page1.png" },

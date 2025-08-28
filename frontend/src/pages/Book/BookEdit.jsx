@@ -45,7 +45,7 @@ export default function BookEdit() {
     event.target.value = '';
   };
 
-  return ( 
+  return (
     <>
       <h2 style={{ 
         textAlign: "center",
@@ -53,16 +53,16 @@ export default function BookEdit() {
         marginBottom: 20,
         fontSize: 40 }}>결말 추가하기</h2>
       
-      <Grid container spacing={2}>
+      <Grid container>
         {Array.from({ length: 16 }).map((_, i) => {
           // 0~13번 페이지: 기존 이미지들 (읽기 전용)
           if (i <= 13) {
             return (
-               <Grid key={i} size={3}>
+               <Grid key={i} size={3}padding={2}>
                 <img
                   src={`/images/book/page${i}.png`}
                   alt={`page${i}`}
-                  style={{ width: "100%", borderRadius: 8 }}
+                  style={{ width: "100%", height:"100%",borderRadius: 8}}
                 />
               </Grid>
             );
@@ -81,12 +81,13 @@ export default function BookEdit() {
           
           // 14, 15번 페이지: 업로드 박스
           return (
-            <Grid item size={3} key={i}>
+            <Grid item size={3}padding={2} key={i}>
               <Box
                 sx={{
                   border: uploaded[i] ? "2px solid green" : "2px dashed gray",
                   aspectRatio: "16/9",
                   width: "100%",
+                  height: "100%",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

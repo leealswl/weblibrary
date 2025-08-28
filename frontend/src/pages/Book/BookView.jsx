@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import BookReader from "../../components/BookShelf/BookReader";
 
@@ -98,8 +98,8 @@ export default function BookView() {
   };
 
   return (
-    <div>
-      <div style={{ textAlign: "center", marginBottom: 20 }}>
+    <Box>
+      <div style={{ textAlign: "center", marginBottom: 80 }}>
         <h2 style={{ color: "green", marginBottom: 10 }}>📖 완성된 동화책</h2>
         <Button 
           variant="contained" 
@@ -108,11 +108,14 @@ export default function BookView() {
         >
           ← 편집 모드로 돌아가기
         </Button>
+        <div style={{ marginTop:30}}>
+          <BookReader pages={generatePagesData()} />
+        </div>
       </div>
       
-      <BookReader pages={generatePagesData()} />
+      
+      <Stack> </Stack>
       <Stack></Stack>
-      <Stack></Stack>
-    </div>
+    </Box>
   );
 }

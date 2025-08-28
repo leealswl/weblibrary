@@ -6,20 +6,20 @@ export default function Comments({ boardId }) {
     const dummyComments = [
   {
     commentId: 1,
-    userName: "태수",
-    content: "이 책 진짜 도움 많이 됐어요 👍",
+    userName: "태준파파",
+    content: "아이들과 10번째 결말 넣는 중이에요. 다른 기능도 추가해주시길..",
     createdAt: "2025-08-17"
   },
   {
     commentId: 2,
     userName: "민지",
-    content: "생각보다 별로였음... 기대 이하 😢",
+    content: "나도 별주부전 읽어볼래!!",
     createdAt: "2025-08-16"
   },
   {
     commentId: 3,
-    userName: "철수",
-    content: "읽고 나니까 인생관이 바뀜 🤯 꼭 추천!",
+    userName: "준영",
+    content: " 🤯 거북이가 바보같아 ㅋㅋ",
     createdAt: "2025-08-15"
   }
 ];

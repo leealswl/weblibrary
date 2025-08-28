@@ -256,9 +256,9 @@ export default function Board() {
                 fontFamily: "'KyoboHand', sans-serif",
                 fontSize: 20
               },
-              "& .MuiDataGrid-footerContainer": {
-                justifyContent: "center" // ★ CHANGED: 중앙 정렬(보조용, CustomPagination 래퍼와 함께 사용)
-              }
+              // "& .MuiDataGrid-footerContainer": {
+              //   justifyContent: "center" // ★ CHANGED: 중앙 정렬(보조용, CustomPagination 래퍼와 함께 사용)
+              // }
             }}
           />
       </Container>
