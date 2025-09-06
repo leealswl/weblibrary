@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Divider, Stack } from '@mui/material';
+import { Container, Stack } from '@mui/material';
 import BookShelf from "../../components/BookShelf/BookShelf.jsx";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
